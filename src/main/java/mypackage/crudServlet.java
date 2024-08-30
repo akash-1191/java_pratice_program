@@ -193,8 +193,7 @@ public class crudServlet extends HttpServlet {
             out.println("</form>");
             out.println("</dialog>");
             out.println("<br/><br/>");
-
-//          
+          
             out.println("<script>");
             out.println("function openModal() {");
             out.println("const dialog = document.querySelector('#updateDialog');");
