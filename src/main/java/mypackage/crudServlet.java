@@ -70,8 +70,8 @@ public class crudServlet extends HttpServlet {
                     + "' proprice='" + rs.getInt("proprice")
                     + "' prounit='" + rs.getInt("prounit")
                     + "'stock='" + rs.getString("stock")
-                    + "' style='color:blue; cursor:pointer;padding:5px;'>Update</button></td>");
-            out.println("<form method='post'>");
+                    + "' style='color:blue; cursor:pointer;padding:5px; background-color:white;border:none;'>Update</button></td>");
+            out.println("<form method='post'onsubmit='return confirmDelete()'>");
             out.println("<input type='hidden' name='proid' value='" + proid + "'/>");
             out.println("<td><input type='submit' name='delete' value='Delete' style='color:red; cursor:pointer; padding:5px; border:none; background-color:white;'/></td>");
             out.println("</form>");
@@ -136,6 +136,11 @@ public class crudServlet extends HttpServlet {
             }
             if (request.getParameter("delete") != null) {
                 int proid = Integer.parseInt(request.getParameter("proid"));
+                out.println("<script>");
+                out.println("function confirmDelete() {");
+                out.println("return confirm('Are you sure you want to delete this item?');");
+                out.println("}");
+                out.println("</script>");
                 deleteData(proid);
                 out.println("<script>alert('Data Deleted...');</script>");
             }
@@ -193,7 +198,7 @@ public class crudServlet extends HttpServlet {
             out.println("</form>");
             out.println("</dialog>");
             out.println("<br/><br/>");
-          
+
             out.println("<script>");
             out.println("function openModal() {");
             out.println("const dialog = document.querySelector('#updateDialog');");
