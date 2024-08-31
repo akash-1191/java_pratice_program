@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <title>Simple Calculator</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 50px;
+                padding: 20px;
+            }
+
+            input[type="number"] {
+                width: 100px;
+                margin: 10px;
+                padding: 5px;
+            }
+
+            select, button {
+                padding: 5px;
+                margin: 10px;
+            }
+        </style>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Simple Calculator</h1>
+        <form action="CalculatorServlet" method="post">
+            <input type="text" name="num1" placeholder="First Number" required />
+            <select name="operation">
+                <option value="add">+</option>
+                <option value="subtract">-</option>
+                <option value="multiply">*</option>
+                <option value="divide">/</option>
+            </select>
+            <input type="text" name="num2" placeholder="Second Number" required />
+            <button type="submit">Calculate</button>
+        </form>
     </body>
 </html>
